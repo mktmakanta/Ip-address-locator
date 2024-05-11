@@ -8,12 +8,14 @@ const IPLocator = () => {
   const fetchLocation = async () => {
     try {
       const apiKey = "at_jglx4vYybuUxKFoIX2waBdvfmNBFz";
-      const response = await fetch(`https://geo.ipify.org/api/v2/country?apiKey=${apiKey}&ipAddress=${ipAddress}`);
+      
+      const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${ipAddress}`);
       if (!response.ok) {
         throw new Error('Failed to fetch location data');
       }
-      const data = await response.json();
-      setLocationData(data);
+      const Location = await response.json();
+      setLocationData(Location.location);
+      console.log(Location);
     } catch (error) {
       setError(error.message);
     }
@@ -40,22 +42,22 @@ const IPLocator = () => {
           placeholder="Search for any IP address or domain name"
         
         />
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+        <button type="submit" >
           search
         </button>
       </form>
       {error && <div >{error}</div>}
       {locationData && (
         <div>
-          <h2 className="text-xl font-semibold mb-2">Location Details</h2>
+          <h2>Location Details</h2>
           <ul>
             <li>IP Address: {locationData.ip}</li>
-            <li>Country: {locationData.country_name}</li>
+            <li>Country: {locationData.country}</li>
             <li>Region: {locationData.region}</li>
             <li>City: {locationData.city}</li>
-            <li>Postal Code: {locationData.postal}</li>
-            <li>Latitude: {locationData.latitude}</li>
-            <li>Longitude: {locationData.longitude}</li>
+            <li>Postal Code: {locationData.postalCode}</li>
+            <li>Latitude: {locationData.lat}</li>
+            <li>Longitude: {locationData.lng}</li>
           </ul>
         </div>
       )}

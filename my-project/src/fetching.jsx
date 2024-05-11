@@ -14,8 +14,8 @@ const IPLocator = () => {
         throw new Error('Failed to fetch location data');
       }
       const Location = await response.json();
-      setLocationData(Location.location);
-      console.log(Location);
+      setLocationData(Location);
+      
     } catch (error) {
       setError(error.message);
     }
@@ -50,15 +50,25 @@ const IPLocator = () => {
       {locationData && (
         <div>
           <h2>Location Details</h2>
-          <ul>
-            <li>IP Address: {locationData.ip}</li>
-            <li>Country: {locationData.country}</li>
-            <li>Region: {locationData.region}</li>
-            <li>City: {locationData.city}</li>
-            <li>Postal Code: {locationData.postalCode}</li>
-            <li>Latitude: {locationData.lat}</li>
-            <li>Longitude: {locationData.lng}</li>
-          </ul>
+          
+            <div>
+              <h2>IP ADDRESS</h2>
+              <h1>{locationData.location.ip}</h1>
+            </div>
+            <div>
+              <h2>LOCATION</h2>
+              <h1>{locationData.location.region},{locationData.location.city} {locationData.location.postalCode}</h1>
+            </div>
+            <div>
+              <h2>TIMEZONE </h2>
+              <h1>UTC{locationData.location.timezone}</h1>
+            </div>
+            <div>
+              <h2>ISP </h2>
+              <h1>{locationData.isp}</h1>
+            </div>
+
+
         </div>
       )}
     </div>

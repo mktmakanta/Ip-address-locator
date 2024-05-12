@@ -37,17 +37,17 @@ const IPLocator = () => {
       <img src="src/images/image1.png" alt="" className='w-screen h-94'/>
       <Map />
       <div className='absolute top-12 left-12 mx-auto'>
-      <h2 className='font-bold text-4xl text-center my-5 '>IP ADDRESS LOCATOR</h2>
+      <h2 className='font-bold text-4xl text-center my-5 text-white'>IP Address Tracker</h2>
       <form className='' onSubmit={handleSubmit} >
         <input
-          className='h-14 w-96 px-4 mt-6 rounded-l-lg'
+          className='h-16 w-96 px-4 mt-6 rounded-l-lg border-gray-300  placeholder-gray-500 text-gray-900 focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 '
           type="text"
           value={ipAddress}
           onChange={handleInputChange}
           placeholder="Search for any IP address or domain name"
         
         />
-        <button className='bg-black text-white  h-14 px-3 rounded-r-lg' type="submit" >
+        <button className='bg-black text-white  h-16 px-4 rounded-r-lg' type="submit" >
           search
         </button>
       </form>

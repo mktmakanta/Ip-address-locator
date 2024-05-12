@@ -1,4 +1,5 @@
 import  { useState } from 'react';
+import Map from './fetchinMap';
 
 const IPLocator = () => {
   const [ipAddress, setIPAddress] = useState('');
@@ -34,43 +35,46 @@ const IPLocator = () => {
     <div >
       {/* <div className='' style={{ backgroundImage: "url('src/images/image1.png')" }}></div> */}
       <img src="src/images/image1.png" alt="" className='w-screen h-94'/>
-      <h1 >IP Address Locator</h1>
-
-      <form onSubmit={handleSubmit} >
+      <Map />
+      <div className='absolute top-12 left-12 mx-auto'>
+      <h2 className='font-bold text-4xl text-center my-5 '>IP ADDRESS LOCATOR</h2>
+      <form className='' onSubmit={handleSubmit} >
         <input
-          
+          className='h-14 w-96 px-4 mt-6 rounded-l-lg'
           type="text"
           value={ipAddress}
           onChange={handleInputChange}
           placeholder="Search for any IP address or domain name"
         
         />
-        <button type="submit" >
+        <button className='bg-black text-white  h-14 px-3 rounded-r-lg' type="submit" >
           search
         </button>
       </form>
-
+      </div>
       {error && <div >{error}</div>}
       {locationData && (
+        <div className='bg-white absolute w-4/5 top-64 mx-auto left-12 rounded-xl py-4 px-6 text-center shadow-md'>
         <div>
-          <h2>Location Details</h2>
-          
+        
+    
             <div>
-              <h2>IP ADDRESS</h2>
-              <h1>{locationData.location.ip}</h1>
+              <h2 className='text-xl text-gray-400 font-bold mt-5'>IP ADDRESS</h2>
+              <h1  className='text-3xl text-black font-bold'>{ipAddress}</h1>
             </div>
             <div>
-              <h2>LOCATION</h2>
-              <h1>{locationData.location.region},{locationData.location.city} {locationData.location.postalCode}</h1>
+              <h2 className='text-xl text-gray-400 font-bold mt-5'>LOCATION</h2>
+              <h1 className='text-3xl text-black font-bold'>{locationData.location.region},{locationData.location.city} {locationData.location.postalCode}</h1>
             </div>
             <div>
-              <h2>TIMEZONE </h2>
-              <h1>UTC{locationData.location.timezone}</h1>
+              <h2 className='text-xl text-gray-400 font-bold mt-5'>TIMEZONE </h2>
+              <h1 className='text-3xl text-black font-bold'>UTC{locationData.location.timezone}</h1>
             </div>
             <div>
-              <h2>ISP </h2>
-              <h1>{locationData.isp}</h1>
+              <h2 className='text-xl text-gray-400 font-bold mt-5'>ISP </h2>
+              <h1 className='text-3xl text-black font-bold mb-6'>{locationData.isp}</h1>
             </div>
+        </div>
         </div>
       )}
     </div>

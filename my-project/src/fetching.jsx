@@ -32,7 +32,10 @@ const IPLocator = () => {
 
   return (
     <div >
+      {/* <div className='' style={{ backgroundImage: "url('src/images/image1.png')" }}></div> */}
+      <img src="src/images/image1.png" alt="" className='w-screen h-94'/>
       <h1 >IP Address Locator</h1>
+
       <form onSubmit={handleSubmit} >
         <input
           
@@ -46,6 +49,7 @@ const IPLocator = () => {
           search
         </button>
       </form>
+
       {error && <div >{error}</div>}
       {locationData && (
         <div>
@@ -67,8 +71,6 @@ const IPLocator = () => {
               <h2>ISP </h2>
               <h1>{locationData.isp}</h1>
             </div>
-
-
         </div>
       )}
     </div>

@@ -32,7 +32,7 @@ const IPLocator = () => {
   };
 
   return (
-    <div >
+    <div className='' >
       {/* <div className='' style={{ backgroundImage: "url('src/images/image1.png')" }}></div> */}
       <img src="src/images/image1.png" alt="" className='w-screen h-94'/>
       <Map />

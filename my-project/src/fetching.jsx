@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import Map from './fetchinMap';
+import Map from './fetchingMap';
 
 const IPLocator = () => {
   const [ipAddress, setIPAddress] = useState('');
